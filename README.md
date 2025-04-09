@@ -22,7 +22,9 @@ Components:
 #### Value at Risk (VaR)
 Value at Risk represents the maximum expected loss over a specific time horizon at a given confidence level. Mathematically:
 
-$$\text{VaR}_{\alpha} = \inf\{l : P(L > l) \leq 1-\alpha\}$$
+```math
+\text{VaR}_{\alpha} = \inf\{l : P(L > l) \leq 1-\alpha\}
+```
 
 Where:
 - $\alpha$ is the confidence level (e.g., 95%)
@@ -33,7 +35,15 @@ Interpretation: "With 95% confidence, the maximum loss over the next day will no
 #### Conditional Value at Risk (CVaR)
 Also known as Expected Shortfall, CVaR measures the expected loss given that the loss exceeds VaR. Mathematically:
 
-$$\text{CVaR}_{\alpha} = \mathbb{E}[L \, | \, L \geq \text{VaR}_{\alpha}]$$
+```math
+\text{CVaR}_{\alpha} = \text{Expected value of losses exceeding VaR}_{\alpha}
+```
+
+Or, in notation form:
+
+```math
+\text{CVaR}_{\alpha} = E[L | L > \text{VaR}_{\alpha}]
+```
 
 Interpretation: "If losses exceed VaR, the expected loss will be X%."
 
@@ -42,7 +52,9 @@ Interpretation: "If losses exceed VaR, the expected loss will be X%."
 #### Sharpe Ratio
 Measures excess return per unit of risk:
 
-$$\text{Sharpe} = \frac{R_p - R_f}{\sigma_p}$$
+```math
+\text{Sharpe} = \frac{R_p - R_f}{\sigma_p}
+```
 
 Where:
 - $R_p$ = portfolio return
@@ -54,14 +66,18 @@ Higher values indicate better risk-adjusted performance.
 #### Sortino Ratio
 Similar to Sharpe but only penalizes downside volatility:
 
-$$\text{Sortino} = \frac{R_p - R_f}{\sigma_{down}}$$
+```math
+\text{Sortino} = \frac{R_p - R_f}{\sigma_{down}}
+```
 
 Where $\sigma_{down}$ is the standard deviation of negative returns only.
 
 #### Treynor Ratio
 Measures excess return per unit of systematic risk:
 
-$$\text{Treynor} = \frac{R_p - R_f}{\beta}$$
+```math
+\text{Treynor} = \frac{R_p - R_f}{\beta}
+```
 
 Where $\beta$ (beta) represents the portfolio's sensitivity to market movements.
 
@@ -69,7 +85,9 @@ Where $\beta$ (beta) represents the portfolio's sensitivity to market movements.
 
 Drawdown measures the decline from a historical peak in wealth:
 
-$$DD(t) = \frac{W(t)}{M(t)} - 1$$
+```math
+DD(t) = \frac{W(t)}{M(t)} - 1
+```
 
 Where:
 - $W(t)$ is the wealth index at time $t$
