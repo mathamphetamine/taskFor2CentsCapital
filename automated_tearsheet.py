@@ -213,7 +213,7 @@ def calculate_var_cvar(returns, weights, num_simulations=10000, days=1, confiden
     CVaR (also known as Expected Shortfall) measures the expected loss given that the 
     loss exceeds VaR. Mathematically:
     
-        $\text{CVaR}_{\alpha} = E[L | L \geq \text{VaR}_{\alpha}]$
+        $\text{CVaR}_{\alpha} = E[L \mid L \geq \text{VaR}_{\alpha}]$
     
     Monte Carlo Implementation:
     --------------------------
