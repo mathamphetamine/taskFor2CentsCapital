@@ -33,7 +33,7 @@ Interpretation: "With 95% confidence, the maximum loss over the next day will no
 #### Conditional Value at Risk (CVaR)
 Also known as Expected Shortfall, CVaR measures the expected loss given that the loss exceeds VaR. Mathematically:
 
-$\text{CVaR}_{\alpha} = E[L | L \geq \text{VaR}_{\alpha}]$
+$\text{CVaR}_{\alpha} = \mathbb{E}[L \mid L \geq \text{VaR}_{\alpha}]$
 
 Interpretation: "If losses exceed VaR, the expected loss will be X%."
 
@@ -278,4 +278,4 @@ MIT
 
 ## Author
 
-[Your Name] 
+Aryan Gupta
