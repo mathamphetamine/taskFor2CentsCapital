@@ -22,18 +22,18 @@ Components:
 #### Value at Risk (VaR)
 Value at Risk represents the maximum expected loss over a specific time horizon at a given confidence level. Mathematically:
 
-VaR_α = inf{l : P(L > l) ≤ 1-α}
+$\text{VaR}_{\alpha} = \inf\{l : P(L > l) \leq 1-\alpha\}$
 
 Where:
-- α is the confidence level (e.g., 95%)
-- L is the loss random variable
+- $\alpha$ is the confidence level (e.g., 95%)
+- $L$ is the loss random variable
 
 Interpretation: "With 95% confidence, the maximum loss over the next day will not exceed X%."
 
 #### Conditional Value at Risk (CVaR)
 Also known as Expected Shortfall, CVaR measures the expected loss given that the loss exceeds VaR. Mathematically:
 
-CVaR_α = E[L | L ≥ VaR_α]
+$\text{CVaR}_{\alpha} = E[L | L \geq \text{VaR}_{\alpha}]$
 
 Interpretation: "If losses exceed VaR, the expected loss will be X%."
 
@@ -42,38 +42,38 @@ Interpretation: "If losses exceed VaR, the expected loss will be X%."
 #### Sharpe Ratio
 Measures excess return per unit of risk:
 
-Sharpe = (R_p - R_f) / σ_p
+$\text{Sharpe} = \frac{R_p - R_f}{\sigma_p}$
 
 Where:
-- R_p = portfolio return
-- R_f = risk-free rate
-- σ_p = portfolio standard deviation
+- $R_p$ = portfolio return
+- $R_f$ = risk-free rate
+- $\sigma_p$ = portfolio standard deviation
 
 Higher values indicate better risk-adjusted performance.
 
 #### Sortino Ratio
 Similar to Sharpe but only penalizes downside volatility:
 
-Sortino = (R_p - R_f) / σ_down
+$\text{Sortino} = \frac{R_p - R_f}{\sigma_{down}}$
 
-Where σ_down is the standard deviation of negative returns only.
+Where $\sigma_{down}$ is the standard deviation of negative returns only.
 
 #### Treynor Ratio
 Measures excess return per unit of systematic risk:
 
-Treynor = (R_p - R_f) / β
+$\text{Treynor} = \frac{R_p - R_f}{\beta}$
 
-Where β (beta) represents the portfolio's sensitivity to market movements.
+Where $\beta$ (beta) represents the portfolio's sensitivity to market movements.
 
 ### Drawdown Analysis
 
 Drawdown measures the decline from a historical peak in wealth:
 
-DD(t) = (W(t) / M(t)) - 1
+$DD(t) = \frac{W(t)}{M(t)} - 1$
 
 Where:
-- W(t) is the wealth index at time t
-- M(t) is the running maximum of wealth up to time t
+- $W(t)$ is the wealth index at time $t$
+- $M(t)$ is the running maximum of wealth up to time $t$
 
 Maximum drawdown (the worst peak-to-trough decline) is a key risk indicator.
 

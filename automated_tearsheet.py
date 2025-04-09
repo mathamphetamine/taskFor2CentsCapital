@@ -204,24 +204,24 @@ def calculate_var_cvar(returns, weights, num_simulations=10000, days=1, confiden
     -----------------------
     VaR represents the potential loss at a given confidence level. Mathematically:
     
-        VaR_α = inf{l : P(L > l) ≤ 1-α}
+        $\text{VaR}_{\alpha} = \inf\{l : P(L > l) \leq 1-\alpha\}$
     
     where:
-    - α is the confidence level (e.g., 0.95)
-    - L is the loss random variable
+    - $\alpha$ is the confidence level (e.g., 0.95)
+    - $L$ is the loss random variable
     
     CVaR (also known as Expected Shortfall) measures the expected loss given that the 
     loss exceeds VaR. Mathematically:
     
-        CVaR_α = E[L | L ≥ VaR_α]
+        $\text{CVaR}_{\alpha} = E[L | L \geq \text{VaR}_{\alpha}]$
     
     Monte Carlo Implementation:
     --------------------------
-    1. Calculate mean returns vector (μ) and covariance matrix (Σ) from historical data
-    2. Generate N random return scenarios using a multivariate normal distribution:
-       R ~ N(μ*days, Σ*days)
-    3. Calculate portfolio returns for each scenario: R_p = weights · R
-    4. Compute VaR as the quantile at (1-confidence_level)
+    1. Calculate mean returns vector ($\mu$) and covariance matrix ($\Sigma$) from historical data
+    2. Generate $N$ random return scenarios using a multivariate normal distribution:
+       $R \sim N(\mu \cdot \text{days}, \Sigma \cdot \text{days})$
+    3. Calculate portfolio returns for each scenario: $R_p = \text{weights} \cdot R$
+    4. Compute VaR as the quantile at $(1-\text{confidence\_level})$
     5. Compute CVaR as the mean of returns beyond VaR
     
     Parameters:
@@ -293,19 +293,19 @@ def calculate_performance_metrics(portfolio_returns, benchmark_returns, risk_fre
     Mathematical Background:
     -----------------------
     1. Sharpe Ratio: Measures excess return per unit of risk
-       Sharpe = (R_p - R_f) / σ_p
-       where R_p = portfolio return, R_f = risk-free rate, σ_p = portfolio standard deviation
+       $\text{Sharpe} = \frac{R_p - R_f}{\sigma_p}$
+       where $R_p$ = portfolio return, $R_f$ = risk-free rate, $\sigma_p$ = portfolio standard deviation
     
     2. Sortino Ratio: Similar to Sharpe but only penalizes downside volatility
-       Sortino = (R_p - R_f) / σ_down
-       where σ_down = standard deviation of negative returns only
+       $\text{Sortino} = \frac{R_p - R_f}{\sigma_{down}}$
+       where $\sigma_{down}$ = standard deviation of negative returns only
     
     3. Beta: Measures portfolio's sensitivity to market movements
-       β = Cov(R_p, R_m) / Var(R_m)
-       where R_m = market/benchmark return
+       $\beta = \frac{\text{Cov}(R_p, R_m)}{\text{Var}(R_m)}$
+       where $R_m$ = market/benchmark return
     
     4. Treynor Ratio: Measures excess return per unit of systematic risk
-       Treynor = (R_p - R_f) / β
+       $\text{Treynor} = \frac{R_p - R_f}{\beta}$
     
     Parameters:
     ----------
@@ -398,16 +398,16 @@ def calculate_drawdowns(returns):
     -----------------------
     Drawdown measures the decline from a historical peak in wealth or cumulative returns.
     
-    1. Wealth Index: W(t) = (1 + r_1) × (1 + r_2) × ... × (1 + r_t)
-       where r_i is the return at time i
+    1. Wealth Index: $W(t) = (1 + r_1) \times (1 + r_2) \times ... \times (1 + r_t)$
+       where $r_i$ is the return at time $i$
     
-    2. Running Maximum: M(t) = max{W(1), W(2), ..., W(t)}
+    2. Running Maximum: $M(t) = \max\{W(1), W(2), ..., W(t)\}$
     
-    3. Drawdown at time t: DD(t) = (W(t) / M(t)) - 1
+    3. Drawdown at time t: $DD(t) = \frac{W(t)}{M(t)} - 1$
        Note: Drawdowns are negative values representing percentage losses
     
     The Maximum Drawdown (MDD) is defined as:
-    MDD = min{DD(1), DD(2), ..., DD(T)}
+    $MDD = \min\{DD(1), DD(2), ..., DD(T)\}$
     
     Parameters:
     ----------
